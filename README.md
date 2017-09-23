@@ -169,9 +169,10 @@ Customize the certs using the following Environment Variables:
 * `CA_SUBJECT` CA Subject, default `test-ca`
 * `CA_EXPIRE` CA Expiry, default `60` days
 * `SSL_CONFIG` SSL Config, default `openssl.cnf` __[1]__
-* `SSL_KEY` SSL Key file, default `key.pem`
-* `SSL_CSR` SSL Cert Request file, default `key.csr`
-* `SSL_CERT` SSL Cert file, default `cert.pem`
+* `SSL_PREFIX` SSL key/csr/cert prefix name. __[3]__
+* `SSL_KEY` SSL Key file, default `key.pem`  __[3]__
+* `SSL_CSR` SSL Cert Request file, default `key.csr`  __[3]__
+* `SSL_CERT` SSL Cert file, default `cert.pem` __[3]__
 * `SSL_SIZE` SSL Cert size, default `2048` bits
 * `SSL_EXPIRE` SSL Cert expiry, default `60` days
 * `SSL_SUBJECT` SSL Subject default `example.com`
@@ -180,6 +181,7 @@ Customize the certs using the following Environment Variables:
 
 __[1] If file already exists will re-use.__
 __[2] If `SSL_DNS` or `SSL_IP` is set will add `SSL_SUBJECT` to alternative hostname list__
+__[3] If SSL_PREFIX is defined, then that's used in preference to individual overrides__
 
 Examples
 --------

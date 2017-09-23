@@ -13,9 +13,15 @@ export CA_SUBJECT=${CA_SUBJECT:-"test-ca"}
 export CA_EXPIRE=${CA_EXPIRE:-"60"}
 
 export SSL_CONFIG=${SSL_CONFIG:-"openssl.cnf"}
-export SSL_KEY=${SSL_KEY:-"key.pem"}
-export SSL_CSR=${SSL_CSR:-"key.csr"}
-export SSL_CERT=${SSL_CERT:-"cert.pem"}
+if [ -n "$SSL_PREFIX" ]; then
+    export SSL_KEY="${SSL_PREFIX}.pem"
+    export SSL_CSR="${SSL_PREFIX}.csr"
+    export SSL_CERT="${SSL_PREFIX}-cert.pem"
+else
+    export SSL_KEY=${SSL_KEY:-"key.pem"}
+    export SSL_CSR=${SSL_CSR:-"key.csr"}
+    export SSL_CERT=${SSL_CERT:-"cert.pem"}
+fi
 export SSL_SIZE=${SSL_SIZE:-"2048"}
 export SSL_EXPIRE=${SSL_EXPIRE:-"60"}
 
