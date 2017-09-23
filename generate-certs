@@ -14,9 +14,9 @@ export CA_EXPIRE=${CA_EXPIRE:-"60"}
 
 export SSL_CONFIG=${SSL_CONFIG:-"openssl.cnf"}
 if [ -n "$SSL_PREFIX" ]; then
-    export SSL_KEY="${SSL_PREFIX}.pem"
+    export SSL_KEY="${SSL_PREFIX}-key.pem"
     export SSL_CSR="${SSL_PREFIX}.csr"
-    export SSL_CERT="${SSL_PREFIX}-cert.pem"
+    export SSL_CERT="${SSL_PREFIX}.pem"
 else
     export SSL_KEY=${SSL_KEY:-"key.pem"}
     export SSL_CSR=${SSL_CSR:-"key.csr"}
